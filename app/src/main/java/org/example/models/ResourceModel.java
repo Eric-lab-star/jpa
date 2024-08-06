@@ -1,9 +1,9 @@
 
 package org.example.models;
 
-import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -22,8 +22,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@Inheritance
-@DiscriminatorColumn(name = "resource_type")
+@Inheritance(
+	strategy = InheritanceType.JOINED
+)
+// @DiscriminatorColumn(name = "resource_type") --> only with single table 
 @Table(name = "resource")
 public class ResourceModel extends BaseEntity{
 	

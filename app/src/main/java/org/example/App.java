@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.models.Video;
 import org.example.respositories.AuthorRespository;
 import org.example.respositories.VideoRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -27,11 +28,11 @@ public class App {
 			// 	.build();
 			// authorRepo.save(author);
 
-			// var video = Video.builder()
-			// 	.name("Video 1")
-			// 	.length(10)
-			// 	.build();
-			// videoRepo.save(video);
+			var video = Video.builder()
+				.name("Video 1")
+				.length(10)
+				.build();
+			videoRepo.save(video);
 		};
 
 	}
