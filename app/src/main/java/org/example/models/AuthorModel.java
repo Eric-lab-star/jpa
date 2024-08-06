@@ -1,33 +1,30 @@
 package org.example.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 
 /**
  * The Author class represents an author with personal details.
  * It includes properties for storing the author's ID, first name, last name, email, and age.
  */
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "author")
-public class AuthorModel {
-    /**
-     * The unique identifier for the author.
-     */
-	@Id
-	@GeneratedValue
-    private Integer id;
+public class AuthorModel extends BaseEntity {
 
     /**
      * The first name of the author.
@@ -49,4 +46,11 @@ public class AuthorModel {
      * The age of the author.
      */
     private int age;
+
+	@ManyToMany(
+		mappedBy = "authors"
+	)
+	private List<CourseModel> courses;
+
+
 }

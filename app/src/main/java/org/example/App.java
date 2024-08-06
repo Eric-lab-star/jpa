@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.models.AuthorModel;
 import org.example.respositories.AuthorRespository;
+import org.example.respositories.VideoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,16 +15,23 @@ public class App {
 
 	@Bean
 	public CommandLineRunner commandLineRunner(
-		AuthorRespository authorRepo
+		AuthorRespository authorRepo,
+		VideoRepository videoRepo
 	){
 		return args -> {
-			var author = AuthorModel.builder()
-				.firstName("John")
-				.lastName("Doe")
-				.email("john@email.com")
-				.age(25)
-				.build();
-			authorRepo.save(author);
+			// var author = AuthorModel.builder()
+			// 	.firstName("John")
+			// 	.lastName("Doe")
+			// 	.email("john@email.com")
+			// 	.age(25)
+			// 	.build();
+			// authorRepo.save(author);
+
+			// var video = Video.builder()
+			// 	.name("Video 1")
+			// 	.length(10)
+			// 	.build();
+			// videoRepo.save(video);
 		};
 
 	}
