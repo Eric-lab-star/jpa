@@ -24,7 +24,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@MappedSuperclass
+@MappedSuperclass // ---> make this class has abstract superclass 
 public class BaseEntity{
 	@Id
 	@GeneratedValue

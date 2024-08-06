@@ -17,10 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@PrimaryKeyJoinColumn(name = "video_id")
-public class Video extends ResourceModel{
-
+@PrimaryKeyJoinColumn(name = "video_id") // ---> join startegy
+public class Video extends ResourceModel {
 	private int length;
-
-	
 }
